@@ -79,6 +79,11 @@ class ViewController: UIViewController {
         // キャンセルを2つ追加するとクラッシュする
         // actionSheet.addAction(cancelAction2)
         
+        // iPad の場合はポップオーバーで表示される
+        // これがないとクラッシュする
+        actionSheet.popoverPresentationController?.sourceView = view
+        actionSheet.popoverPresentationController?.sourceRect = sender.frame
+        
         present(actionSheet, animated: true, completion: nil)
     }
 
